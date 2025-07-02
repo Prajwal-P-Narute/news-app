@@ -32,7 +32,7 @@ const Newsapp = () => {
     setNewsData(jsonData.articles);
   };
   fetchData();
-}, []);
+}, [search]);
 
 
     
