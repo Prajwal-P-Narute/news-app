@@ -24,9 +24,16 @@ const Newsapp = () => {
     }
 
     //  whenever we refreshed the page then automatically news of india will be shown.
-    useEffect(() =>{
-        getData()
-    }, [])
+   useEffect(() => {
+  const fetchData = async () => {
+    const response = await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`);
+    const jsonData = await response.json();
+    console.log(jsonData.articles);
+    setNewsData(jsonData.articles);
+  };
+  fetchData();
+}, []);
+
 
     
   return (
